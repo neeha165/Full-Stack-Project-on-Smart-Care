@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make an Appointment</title>
+    <style>
+        body {
+             font-family: Arial, sans-serif;
+        background: url('img1.jpg'); /* Change 'img1.jpg' to your actual image file */
+        background-size: cover;
+        background-attachment: fixed;
+        animation: scale-background 20s ease infinite;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        }
+
+        @keyframes scale-background {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .appointment-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        h1 {
+            color: #007BFF;
+            font-size: 28px;
+            margin-top: 0;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="datetime-local"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        select {
+            appearance: none;
+            padding: 10px;
+            background: #f9f9f9;
+            border: 1px solid #ccc;
+        }
+
+        textarea {
+            resize: none;
+            min-height: 100px;
+        }
+
+     
+.confirmation-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #007BFF;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="appointment-card">
+        <h1>Make an Appointment</h1>
+        <form action="appoint2" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone (optional):</label>
+            <input type="tel" id="phone" name="phone">
+
+
+            <label for="datetime">Preferred Date and Time:</label>
+            <input type="datetime-local" id="datetime" name="datetime" required>
+
+            <label for="hospital">Select Doctor</label>
+            <select id="hospital" name="hospital" required>
+                <option value="doctor">Dr A D Suri. Nephrology| 22 years exp. ...</option>
+                <option value="doctor">Dr A Anitha. Nephrology| 16 years exp. ...
+                <option value="doctor">Dr A G K Gokhale. Cardiothoracic & Vascular Surgery| 32 years exp. ...
+                </option>
+                <option value="doctor">Dr A Jayavelu. Neurology| 21 years exp. ...
+                </option>
+                <option value="doctor">Dr A K Bardhan. Cardiology| 30 years exp. ...
+                </option>
+                <option value="doctor">Dr A Mohan Krishna. Orthopaedics| 14 years exp. ...
+                </option>
+            </select>
+
+            <label for="location">Choose Location</label>
+            <select id="location" name="location" required>
+                <option value="location">Apollo Hospitals – Navi Mumbai, Parsik Hill Road, Sector 23, CBD Belapur, Navi Mumbai – 400 614, Mumbai</option>
+                <option value="location">Apollo Hospitals, Greams Road, 21, Greams Lane, Off Greams Road, Chennai – 600006, Chennai</option>
+            </select>
+
+            <label for="reason">Reason for Appointment:</label>
+            <textarea id="reason" name="reason" required></textarea>
+
+            <label for="notes">Additional Notes or Comments:</label>
+            <textarea id="notes" name="notes"></textarea>
+
+            <button type="submit">Confirm Appointment</button>
+        </form>
+
+        <div id="confirmation-message" class="confirmation-message">
+            <p>You have successfully confirmed your appointment.</p>
+        </div>
+<div id="confirmation-message" class="confirmation-message">
+            <p>You have successfully confirmed your appointment.</p>
+        </div>
+
+       
+ <script>
+            function showConfirmation(event) {
+                event.preventDefault();
+                var confirmationMessage = document.getElementById("confirmation-message");
+                confirmationMessage.style.display = "block";
+            }
+        </script>
+    </div>
+</body>
+
+</html>
